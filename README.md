@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Parallel NS-3 simulation examples
 
 ### A simple tutorial on running NS-3 in parallel, including simulation of FatTree, GEANT, and Abilene topologies.
@@ -9,7 +8,7 @@ Our simulation examples are based on the NS-3 simulator, which requires some dep
 
 - [Python == 2.7.X](https://www.python.org/)
 - [GCC-5 G++-5](https://gcc.gnu.org/)
-- [MPI]()
+- [MPI](https://www.open-mpi.org/)
 
 
 #### Compile Simulator 
@@ -26,7 +25,7 @@ You need to specify the topology and traffic files you want to run in the config
 - configuration file: `/parallel_distributed/distributed_config.txt`
 
 #### Run The Simulation In A Single Process
-**(Modify the configuration file)**
+**Modify the configuration file**
 ```
 vim /parallel_distributed/distributed_config.txt
 
@@ -43,7 +42,7 @@ PFC_OUTPUT_FILE parallel_distributed/pfc_parallel1_fattree4.txt
 ...
 
 ```
-**(Run the Simulation)**
+**Run the Simulation**
 ```
   ./waf --run 'scratch/distributed-third parallel_distributed/distributed_config.txt'
 ```
@@ -52,15 +51,13 @@ PFC_OUTPUT_FILE parallel_distributed/pfc_parallel1_fattree4.txt
 #### Run With Multiple Processes
 Use `mpirun` to run the program parallelly. For example, Run FatTree-4 with 2 processes:
 ```
-mpirun -np 2 ./waf --run 'scratch/distributed-third parallel_distributed/distributed_kaihui_config.txt'
+mpirun -np 2 ./waf --run 'scratch/distributed-third parallel_distributed/distributed_config.txt'
 ```
 
 #### Run With Multiple machines
 Ensure that programs on different machines have the same path. Parallel simulation can then be started on a primary server. Based on the above command, add IP addresses of all machines after `-host`. For example, run FatTree-4 on two machines:
 ```
-mpirun -np 2 -hosts 12.12.12.101,12.12.12.102(IP addresses of your machines) ./waf --run 'scratch/distributed-third parallel_distributed/distributed_kaihui_config.txt'
+mpirun -np 2 -hosts 12.12.12.101,12.12.12.102(IP addresses of your machines) ./waf --run 'scratch/distributed-third parallel_distributed/distributed_config.txt'
 ```
 
-=======
-# NS3_Parallel
->>>>>>> 0531ac4fc0197877b79f07efdf1924ec908410c3
+
